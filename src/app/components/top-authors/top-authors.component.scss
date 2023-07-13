@@ -1,0 +1,52 @@
+
+.circle-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, 
+        rgba(0,0,0,0) calc(50% - 1px), 
+        rgba(192,192,192,1) calc(50%), 
+        rgba(0,0,0,0) calc(50% + 1px)
+    );
+    background-position: 0 -20px;
+    padding: 0 0 0 40px;
+  }
+  
+  .circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .circle-number {
+    display: block;
+    border-radius: 50%;
+    background-color: rgba(124,174,41,255);
+    color: white;
+  }
+  
+  .circle-title {
+    margin-top: 10px;
+    color: rgba(124,174,41,255);
+    font-weight: bold;
+  }
+  
+  .circle-description {
+    margin-top: 5px;
+    color: gray;
+  }
+
+  .chart-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+  .total {
+    font-weight: bold;
+    font-size: 34px;
+    max-width: 143px;
+    text-align: center;
+    padding-right: 30px;
+  }
