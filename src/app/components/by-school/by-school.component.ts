@@ -14,9 +14,10 @@ export class BySchoolComponent {
   constructor(private dashboardService: DashboardService) {}
 
   chartId: string = 'MyBar';
-  type: ChartType = 'bar';
+  type: ChartType = 'bar';   
 
   options: ChartOptions = {
+    aspectRatio: 2,
     plugins: {
       legend: {
         display: false,
@@ -28,7 +29,7 @@ export class BySchoolComponent {
       },
       x: {
         ticks: {
-          font: screen.width < 465 ? {size: 9} : {size: 14},
+          font: screen.width < 680 ? {size: 9} : {size: 14},
           maxRotation: 90,
           minRotation: 90
         }

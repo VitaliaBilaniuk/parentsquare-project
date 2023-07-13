@@ -1,10 +1,12 @@
-<div class="chart-container">
-    <span class="total">{{(getAuthorsStatisticsData$ | async)?.total}} authors</span>
-    <div class="circle-container">
-        <div class="circle" *ngFor="let circle of (getAuthorsStatisticsData$ | async)?.data; let i = index" [attr.data-load]="circle.load" [id]="'circle-' + i">
-          <span class="circle-number">{{ circle.load }}</span>
-          <div class="circle-title">{{ circle.title }}</div>
-          <div class="circle-description">{{ circle.description }}</div>
+<section>
+    <div class="chart-container">
+        <span class="total"><span>{{(getAuthorsStatisticsData$ | async)?.total}}</span> authors</span>
+        <div class="circle-container">
+            <div class="circle" *ngFor="let circle of (getAuthorsStatisticsData$ | async)?.data; let i = index" [attr.data-load]="circle.load" [id]="'circle-' + i">
+              <span class="circle-number">{{ circle.load }}</span>
+              <div class="circle-title">{{ circle.title }}</div>
+              <div class="circle-description">{{ circle.description }}</div>
+            </div>
         </div>
     </div>
-</div>
+</section>

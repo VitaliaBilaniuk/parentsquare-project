@@ -1,52 +1,113 @@
-
 .circle-container {
     display: flex;
-    flex: 1;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(180deg, 
-        rgba(0,0,0,0) calc(50% - 1px), 
-        rgba(192,192,192,1) calc(50%), 
-        rgba(0,0,0,0) calc(50% + 1px)
-    );
-    background-position: 0 -20px;
-    padding: 0 0 0 40px;
-  }
-  
-  .circle {
+    position: relative;
+    padding: 0 20px;
+    flex: 1;
+    &::after {
+        content:'*all values are totaled starting from July 03, 2018';
+        font-style: italic;
+        margin: 30px 0;
+    }
+}
+
+.circle {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  
-  .circle-number {
-    display: block;
+    margin-bottom: 20px;
+}
+
+.circle-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    background-color: rgba(124,174,41,255);
+    background-color: rgba(124, 174, 41, 255);
     color: white;
-  }
-  
-  .circle-title {
+    font-size: 22px;
+    height: 100px;
+    width: 100px;
+}
+
+.circle-title {
     margin-top: 10px;
-    color: rgba(124,174,41,255);
+    color: rgba(124, 174, 41, 255);
     font-weight: bold;
-  }
-  
-  .circle-description {
+}
+
+.circle-description {
     margin-top: 5px;
     color: gray;
-  }
+    font-size: 13px;
+}
 
-  .chart-container {
+.chart-container {
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
-  }
-  .total {
-    font-weight: bold;
-    font-size: 34px;
+    position: relative;
+}
+
+.total {
+    font-size: 20px;
     max-width: 143px;
     text-align: center;
     padding-right: 30px;
-  }
+    text-transform: uppercase;
+    span {
+        font-size: 38px;
+        font-weight: 600;
+    }
+}
+
+.chart-container::before {
+    content: "";
+    position: absolute;
+    top: 28%;
+    left: 13%;
+    right: 0;
+    border-top: 2px solid #ebebeb;
+    transform: translateY(-60%);
+    width: 80%;
+}
+
+/* Media Queries */
+@media (max-width: 1300px) {
+    .chart-container {
+        align-items: center;
+        &::before {
+            content:none
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .circle-container {
+        justify-content: center;
+    }
+    .circle {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .chart-container {
+        flex-direction: column;
+    }
+    .circle-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        margin-top: 40px;
+    }
+    .circle {
+        margin-right: 0;
+    }
+    .total {
+        padding-right: 0;
+    }
+}
