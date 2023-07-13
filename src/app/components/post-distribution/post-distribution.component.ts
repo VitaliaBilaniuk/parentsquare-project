@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
 import { DashboardService } from "../../services/dashboard.service"
-import { map } from 'rxjs';
-
+import { map, Observable} from 'rxjs';
+import { PostDistributionModel, ChartJsDatadModel } from '../../models/usageDashboard.model';
+import { ChartType, ChartOptions }from 'chart.js/auto';
 @Component({
   selector: 'app-post-distribution',
   templateUrl: './post-distribution.component.html',
@@ -13,8 +14,8 @@ export class PostDistributionComponent{
   constructor(private dashboardService: DashboardService) {}
 
   chartId = 'MyDoughnut';
-  type = 'doughnut';
-  options= {
+  type: ChartType = 'doughnut';
+  options: ChartOptions= {
     maintainAspectRatio:false,
     plugins: {
       legend: {
@@ -28,11 +29,11 @@ export class PostDistributionComponent{
     }
   };
 
-  postsDistributionData$ = this.dashboardService.getPostsDistributionData().pipe(
-    map((data) => data = {
-      labels: data.map((item:any) => `${item.postsNumber.toLocaleString()} ${item.group}`),
+  postsDistributionData$: Observable<ChartJsDatadModel> = this.dashboardService.getPostsDistributionData().pipe(
+    map((data:any) => data = {
+      labels: data.map((item: PostDistributionModel) => `${item.postsNumber.toLocaleString()} ${item.group}`),
       datasets: [{
-        data: data.map((item:any) => item.postsNumber),
+        data: data.map((item: PostDistributionModel) => item.postsNumber),
         backgroundColor: [
           'rgba(221,107,147,255)',
           'rgba(124,174,41,255)',

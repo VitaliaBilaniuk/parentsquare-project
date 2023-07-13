@@ -10,7 +10,7 @@ import { TopAuthorsComponent } from './components/top-authors/top-authors.compon
 import { DashboardLayoutComponent } from './components/dashboard-layout/dashboard-layout.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataService } from './data.service';
+import { ServerDataMockService } from './server-data-mock.service';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    HttpClientInMemoryWebApiModule.forRoot(ServerDataMockService),
     HttpClientModule,
   ],
   providers: [],

@@ -1,5 +1,5 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
-import { Chart }from 'chart.js/auto';
+import { Chart, ChartType, ChartData, ChartOptions }from 'chart.js/auto';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -7,11 +7,11 @@ import { Chart }from 'chart.js/auto';
   styleUrls: ['./dashboard-layout.component.scss']
 })
 export class DashboardLayoutComponent implements AfterViewInit{
-  @Input() chartId = '';
-  @Input() data: any;
-  @Input() type: any;
-  @Input() options: any;
-  public chart: any;
+  @Input() chartId: string;
+  @Input() type: ChartType;
+  @Input() data: ChartData | any;
+  @Input() options: ChartOptions;
+  public chart: Chart;
 
   constructor(){}
 

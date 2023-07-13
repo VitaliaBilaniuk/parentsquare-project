@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AuthorsModel, PostDistributionModel, PostDistributionBySchoolModel } from '../models/usageDashboard.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,33 +15,32 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { }
 
-  getAuthorsStatistics(): Observable<any> {
-    return this.http.get<any>(this.authorsUrl).pipe(
+  getAuthorsStatistics(): Observable<AuthorsModel> {
+    return this.http.get<AuthorsModel>(this.authorsUrl).pipe(
       catchError((error: HttpErrorResponse) => {
         return this.errorHandler(error);
       })
     );
   }
 
-  getPostsDistributionData(): Observable<any> {
-    return this.http.get<any>(this.postsDistributionUrl).pipe(
+  getPostsDistributionData(): Observable<Array<PostDistributionModel>> {
+    return this.http.get<Array<PostDistributionModel>>(this.postsDistributionUrl).pipe(
       catchError((error: HttpErrorResponse) => {
         return this.errorHandler(error);
       })
     );
   }
 
-  getPostsDistributionBySchoolData(): Observable<any> {
-    return this.http.get<any>(this.postsDistributionBySchoolUrl).pipe(
+  getPostsDistributionBySchoolData(): Observable<Array<PostDistributionBySchoolModel>> {
+    return this.http.get<Array<PostDistributionBySchoolModel>>(this.postsDistributionBySchoolUrl).pipe(
       catchError((error: HttpErrorResponse) => {
         return this.errorHandler(error);
       })
     );
   }
 
-  errorHandler(error: HttpErrorResponse) {
+  errorHandler(error: HttpErrorResponse): Observable<never> {
     console.error(error);
     return throwError(() => new Error('server error'));
   }
-
 }
