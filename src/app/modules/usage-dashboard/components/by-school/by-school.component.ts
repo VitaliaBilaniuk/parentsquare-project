@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { DashboardService } from "../../services/dashboard.service"
 import { map, Observable } from 'rxjs';
-import { ChartJsDatadModel, PostDistributionBySchoolModel } from '../../models/usageDashboard.model';
-import { ChartType, ChartOptions }from 'chart.js/auto';
+import { PostDistributionBySchoolModel } from '../../models/usageDashboard.model';
+import { ChartType, ChartOptions, ChartData }from 'chart.js/auto';
 @Component({
   selector: 'app-by-school',
   templateUrl: './by-school.component.html',
@@ -37,13 +37,15 @@ export class BySchoolComponent {
     }
   }
 
-  postsDistributionBySchoolData$: Observable<ChartJsDatadModel> = this.dashboardService.getPostsDistributionBySchoolData().pipe(
-    map((data: any ) => data = {
-      labels: data.map((item: PostDistributionBySchoolModel) => `${item.schoolName}`),
-      datasets: [{
-        data: data.map((item: PostDistributionBySchoolModel) => item.postsNumber),
-        backgroundColor: 'rgba(124,174,41,255)',
-      }]
-    }),
-  );
+  postsDistributionBySchoolData$: Observable<ChartData> = this.dashboardService.getPostsDistributionBySchoolData().pipe(
+    map((data) => {
+      const chartData: ChartData = {
+        labels: data.map((item: PostDistributionBySchoolModel) => item.schoolName),
+        datasets: [{
+          data: data.map((item: PostDistributionBySchoolModel) => item.postsNumber),
+          backgroundColor: 'rgba(124,174,41,255)',
+        }]
+      };
+      return chartData;
+    }));
 }

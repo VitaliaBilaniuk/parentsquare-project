@@ -15,8 +15,3 @@ export interface PostDistributionBySchoolModel {
     postsNumber: number;
     schoolName: string;
 }
-
-export interface ChartJsDatadModel { 
-    labels: string[];
-    datasets?: Object;
-}
