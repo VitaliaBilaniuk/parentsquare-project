@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { PostDistributionBySchoolModel } from './models/usageDashboard.model';
+import { PostDistributionBySchoolModel } from './modules/usage-dashboard/models/usageDashboard.model';
 
 @Injectable({
   providedIn: 'root'
