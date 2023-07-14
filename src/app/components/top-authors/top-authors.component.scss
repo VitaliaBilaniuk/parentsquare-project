@@ -1,7 +1,7 @@
 .circle-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: relative;
     padding: 0 20px;
@@ -9,7 +9,7 @@
     &::after {
         content:'*all values are totaled starting from July 03, 2018';
         font-style: italic;
-        margin: 30px 0;
+        margin: 30px auto 30px 0;
     }
 }
 
@@ -31,6 +31,7 @@
     font-size: 22px;
     height: 100px;
     width: 100px;
+    padding: 5px;
 }
 
 .circle-title {
@@ -68,11 +69,11 @@
     content: "";
     position: absolute;
     top: 28%;
-    left: 13%;
+    left: 14%;
     right: 0;
     border-top: 2px solid #ebebeb;
     transform: translateY(-60%);
-    width: 80%;
+    width: 70%;
 }
 
 /* Media Queries */
@@ -109,5 +110,8 @@
     }
     .total {
         padding-right: 0;
+    }
+    .circle-number {
+        padding: 20px;
     }
 }
