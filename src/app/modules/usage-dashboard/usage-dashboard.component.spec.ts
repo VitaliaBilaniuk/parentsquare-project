@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { UsageDashboardComponent } from './usage-dashboard.component';
 
 describe('UsageDashboardComponent', () => {
@@ -8,7 +8,8 @@ describe('UsageDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsageDashboardComponent ]
+      declarations: [ UsageDashboardComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA  ]
     })
     .compileComponents();
 

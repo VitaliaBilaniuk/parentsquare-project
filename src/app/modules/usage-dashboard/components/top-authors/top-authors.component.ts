@@ -22,10 +22,10 @@ export class TopAuthorsComponent implements AfterViewInit {
       const load = circle.getAttribute('data-load') || '{}';
       const coefficient = (screen.width > 1800) ? 1 : 10;
       const size = (parseInt(load) / 100) * coefficient + 5;
-      
-      (circle.querySelector('.circle-number') as HTMLElement).style.setProperty('width', `${size}vw`);
-      (circle.querySelector('.circle-number') as HTMLElement).style.setProperty('height', `${size}vw`);
-      (circle.querySelector('.circle-number') as HTMLElement).style.setProperty('line-height', `${size}vw`);
+      const circleNumberElement = circle.querySelector('.circle-number') as HTMLElement;
+      circleNumberElement.style.setProperty('width', `${size}vw`);
+      circleNumberElement.style.setProperty('height', `${size}vw`);
+      circleNumberElement.style.setProperty('line-height', `${size}vw`);
     });
   }
 }

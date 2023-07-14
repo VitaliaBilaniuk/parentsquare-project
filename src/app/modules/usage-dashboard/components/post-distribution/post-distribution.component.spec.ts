@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { PostDistributionComponent } from './post-distribution.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PostDistributionComponent', () => {
   let component: PostDistributionComponent;
@@ -8,7 +9,9 @@ describe('PostDistributionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostDistributionComponent ]
+      declarations: [ PostDistributionComponent ],
+      imports: [HttpClientModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 
