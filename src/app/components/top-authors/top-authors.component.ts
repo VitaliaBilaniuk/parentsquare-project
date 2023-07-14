@@ -20,7 +20,9 @@ export class TopAuthorsComponent implements AfterViewInit {
     const circleElements = document.querySelectorAll('.circle');
     circleElements.forEach(circle => {
       const load = circle.getAttribute('data-load') || '{}';
-      const size = (parseInt(load) / 100) * 10 + 5;
+      const coefficient = (screen.width > 1800) ? 1 : 10;
+      const size = (parseInt(load) / 100) * coefficient + 5;
+      
       (circle.querySelector('.circle-number') as HTMLElement).style.setProperty('width', `${size}vw`);
       (circle.querySelector('.circle-number') as HTMLElement).style.setProperty('height', `${size}vw`);
       (circle.querySelector('.circle-number') as HTMLElement).style.setProperty('line-height', `${size}vw`);
